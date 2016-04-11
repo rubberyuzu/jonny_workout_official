@@ -41,7 +41,7 @@
     <img src="src/streetworkout_robo.jpg" id="about_img">
     <p>
     ストリートワークアウトとは、
-    主に公園に設置されている『高鉄棒　平行棒　雲梯(うんてい)棒』などの健康器具を使用して『腕立て伏せ・懸垂・ディップス・腹筋運動・スクワット』を基本とした体作りの基本となるトレーニングに『ダンス・体操・パントマイム』などの様々なジャンルのパフォーマンス要素が組み合わさった、『新しい運動方法』でもあり『国際的なスポーツ』である。<br>
+    主に公園に設置されている『高鉄棒・平行棒・雲梯(うんてい)棒』などの健康器具を使用して『腕立て伏せ・懸垂・ディップス・腹筋運動・スクワット』を基本とした体作りの基本となるトレーニングに『ダンス・体操・パントマイム』などの様々なジャンルのパフォーマンス要素が組み合わさった、『新しい運動方法』でもあり『国際的なスポーツ』である。<br>
     『年齢・性別・運動経験・運動能力』など関係なく、誰でも遊び感覚で体づくりができるため、自然と正しい体の使い方も学ぶ事ができる。<br>
     また『国・人種・言語』など関係なく、世界中の人が『お互いを1人の人間』として認め、向き合い、交流を持つ事ができる『Community Sports・コミュニティースポーツ』として『地域活性化・青少年健全育成』に繋がる側面もあり、近年では教育現場にもストリートワークアウトを取り入れる国や団体も年々増えている。<br>
     </p>
@@ -62,7 +62,73 @@
     <p>
       japanstreetworkout@gmail.com
     </p>
- 
+
+    <form id="foo">
+<p><label for="name">Name:</label>
+<input id="name" name="name" type="text" value=""/></p>
+<p><label for="comment">Comment:</label><br/>
+<textarea id="comment" name="comment" cols="40"></textarea></p>
+<p id="result"></p>
+<input type="submit" value="Send"/>
+</form>
+<script data-cfasync="false" type="text/javascript">
+jQuery( document ).ready(function( $ ) {
+  // variable to hold request
+  var request;
+  // bind to the submit event of our form
+  $("#foo").submit(function(event){
+    // abort any pending request
+    if (request) {
+      request.abort();
+    }
+    // setup some local variables
+    var $form = $(this);
+    // let's select and cache all the fields
+    var $inputs = $form.find("input, select, button, textarea");
+    // serialize the data in the form
+    var serializedData = $form.serialize();
+    // let's disable the inputs for the duration of the ajax request
+    // Note: we disable elements AFTER the form data has been serialized.
+    // Disabled form elements will not be serialized.
+    $inputs.prop("disabled", true);
+    $('#result').text('Sending data...');
+    // fire off the request to /form.php
+    request = $.ajax({
+      url: "https://script.google.com/macros/s/AKfycbwZNOvYYxSmCJPR6a3OVLquym3e1tRhpCLgwZwYYxVw9CnGOKc/exec",  // clone
+      type: "post",
+      data: serializedData
+    });
+    // callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+      // log a message to the console
+      console.log(response, textStatus, jqXHR);
+      $('#result').html('<a href="https://docs.google.com/spreadsheets/d/1A9P0aQ0CCu4MHVRb-Kt0qBRQ8NkREPOH9biHxD6kIn4/edit#gid=406008481" target="_blank">Success - see Google Sheet</a>');
+      console.log("Hooray, it worked!");
+    });
+    // callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+      // log the error to the console
+      console.error(
+        "The following error occured: "+
+        textStatus, errorThrown
+      );
+    });
+    // callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+      // reenable the inputs
+      $inputs.prop("disabled", false);
+    });
+    // prevent default posting of form
+    event.preventDefault();
+  });
+});
+</script>
+
+
+
+
+
   </div>
 
   <div id="Gmap">
