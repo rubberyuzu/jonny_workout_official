@@ -14,14 +14,11 @@
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-<div class="wrapper">
+<div id="wrap">
 
 <div id="header">
   <h1>Street Workout Japan :) </h1>
 </div>
-
-
-<div class="lightpage">
   
 <div class="sexytabs">
   
@@ -37,11 +34,13 @@
     <li><a href="#Gmap">
       <span>活動マップ</span></a></li>
   </ul>
-  
+
+
   <div class="contents">
-  <div id="About">
+
+  <div id="About" class="tabcontent">
     <h2>ストリートワークアウトとは</h2>
-    <img src="src/streetworkout_robo.jpg" id="about_img">
+    <img src="src/streetworkout_robo.jpg" id="about_img" class="media-object">
     <p>
     ストリートワークアウトとは、
     主に公園に設置されている『高鉄棒・平行棒・雲梯(うんてい)棒』などの健康器具を使用して『腕立て伏せ・懸垂・ディップス・腹筋運動・スクワット』を基本とした体作りの基本となるトレーニングに『ダンス・体操・パントマイム』などの様々なジャンルのパフォーマンス要素が組み合わさった、『新しい運動方法』でもあり『国際的なスポーツ』である。<br>
@@ -52,22 +51,25 @@
 
   </div>
     
-  <div id="Purpose">
+  <div id="Purpose" class="tabcontent">
     <h2>ストリートワークアウト協会の目的</h2>
 
     <img src="">
     <p>Bushwick semiotics meh artisan, whatever gastropub pop-up narwhal Cosby sweater stumptown VHS synth kogi art party McSweeney's.  Helvetica locavore actually cray paleo.  +1 PBR gentrify, direct trade  narwhal tattooed polaroid Helvetica readymade wolf Tumblr authentic try-hard hella.  Try-hard 90's gentrify art party.  Helvetica Intelligentsia +1, banjo try-hard tote bag organic fashion axe gluten-free chambray stumptown Echo Park beard.  Craft beer DIY beard, roof party tofu plaid sustainable Tonx.  Small batch letterpress salvia sartorial deep v ugh, High Life aesthetic hoodie Neutra Vice freegan flannel.</p>
     
   </div>
+  <div id="Introduction" class="tabcontent">
+
+  </div>
     
-  <div id="Contact">
+  <div id="Contact" class="tabcontent">
     <h2>お問い合わせ</h2>
     <!-- Create a message form here!!!! -->
     <p>
       japanstreetworkout@gmail.com
     </p>
 
-<form class="navbar-form pull-left">
+<form id="foo" class="navbar-form pull-left">
 <p><label for="name">Name:</label>
 <input id="name" name="name" type="text" value="" class="span2"/></p>
 <p><label for="comment">Comment:</label><br/>
@@ -75,59 +77,8 @@
 <p id="result"></p>
 <button type="submit" class="btn">送信</button>
 </form>
-<script data-cfasync="false" type="text/javascript">
-jQuery( document ).ready(function( $ ) {
-  // variable to hold request
-  var request;
-  // bind to the submit event of our form
-  $("#foo").submit(function(event){
-    // abort any pending request
-    if (request) {
-      request.abort();
-    }
-    // setup some local variables
-    var $form = $(this);
-    // let's select and cache all the fields
-    var $inputs = $form.find("input, select, button, textarea");
-    // serialize the data in the form
-    var serializedData = $form.serialize();
-    // let's disable the inputs for the duration of the ajax request
-    // Note: we disable elements AFTER the form data has been serialized.
-    // Disabled form elements will not be serialized.
-    $inputs.prop("disabled", true);
-    $('#result').text('Sending data...');
-    // fire off the request to /form.php
-    request = $.ajax({
-      url: "https://script.google.com/macros/s/AKfycbwZNOvYYxSmCJPR6a3OVLquym3e1tRhpCLgwZwYYxVw9CnGOKc/exec",
-      type: "post",
-      data: serializedData
-    });
-    // callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-      // log a message to the console
-      console.log(response, textStatus, jqXHR);
-      $('#result').html('<a href="https://docs.google.com/spreadsheets/d/1A9P0aQ0CCu4MHVRb-Kt0qBRQ8NkREPOH9biHxD6kIn4/edit#gid=406008481" target="_blank">Success - see Google Sheet</a>');
-      console.log("Hooray, it worked!");
-    });
-    // callback handler that will be called on failure
-    request.fail(function (jqXHR, textStatus, errorThrown){
-      // log the error to the console
-      console.error(
-        "The following error occured: "+
-        textStatus, errorThrown
-      );
-    });
-    // callback handler that will be called regardless
-    // if the request failed or succeeded
-    request.always(function () {
-      // reenable the inputs
-      $inputs.prop("disabled", false);
-    });
-    // prevent default posting of form
-    event.preventDefault();
-  });
-});
-</script>
+
+
 
 
 
@@ -135,7 +86,7 @@ jQuery( document ).ready(function( $ ) {
 
   </div>
 
-  <div id="Gmap">
+  <div id="Gmap" class="tabcontent">
     <h2>活動場所</h2>
     <div id="map-wrapper">
       <div id="map"></div>
@@ -144,15 +95,16 @@ jQuery( document ).ready(function( $ ) {
 
 </div>
 
+
+
+<div id="push"></div>
+
 </div>
 
-
-<div class="push"></div>
-
-</div>
-
-<div class="footer">
-  <p>Copyright (c) 2016</p>
+<div id="footer">
+  <div class="container">
+    <p class="muted credit">Copyright (c) 2016</p>
+  </div>
 </div>
 
 </div>
