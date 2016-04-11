@@ -9,6 +9,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj1B-493g2o9_tGgd2SpOpA8xzBOVHpxQ&callback=initMap&signed_in=true" async defer></script>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
 <div class="wrapper">
@@ -43,9 +46,10 @@
     ストリートワークアウトとは、
     主に公園に設置されている『高鉄棒・平行棒・雲梯(うんてい)棒』などの健康器具を使用して『腕立て伏せ・懸垂・ディップス・腹筋運動・スクワット』を基本とした体作りの基本となるトレーニングに『ダンス・体操・パントマイム』などの様々なジャンルのパフォーマンス要素が組み合わさった、『新しい運動方法』でもあり『国際的なスポーツ』である。<br>
     『年齢・性別・運動経験・運動能力』など関係なく、誰でも遊び感覚で体づくりができるため、自然と正しい体の使い方も学ぶ事ができる。<br>
-    また『国・人種・言語』など関係なく、世界中の人が『お互いを1人の人間』として認め、向き合い、交流を持つ事ができる『Community Sports・コミュニティースポーツ』として『地域活性化・青少年健全育成』に繋がる側面もあり、近年では教育現場にもストリートワークアウトを取り入れる国や団体も年々増えている。<br>
+    また『国・人種・言語』など関係なく、世界中の人が『お互いを1人の人間』として認め、向き合い、交流を持つ事ができる『Community Sports・コミュニティースポーツ』として『地域活性化・青少年健全育成』に繋がる側面もあり、近年では教育現場にもストリートワークアウトを取り入れる国や団体も年々増えている。<br><br>
+    [関連リンク] <a href="https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88" target="_blank">Wikipedia "ストリートワークアウト"</a>
     </p>
-    
+
   </div>
     
   <div id="Purpose">
@@ -63,13 +67,13 @@
       japanstreetworkout@gmail.com
     </p>
 
-    <form id="foo">
+<form class="navbar-form pull-left">
 <p><label for="name">Name:</label>
-<input id="name" name="name" type="text" value=""/></p>
+<input id="name" name="name" type="text" value="" class="span2"/></p>
 <p><label for="comment">Comment:</label><br/>
 <textarea id="comment" name="comment" cols="40"></textarea></p>
 <p id="result"></p>
-<input type="submit" value="Send"/>
+<button type="submit" class="btn">送信</button>
 </form>
 <script data-cfasync="false" type="text/javascript">
 jQuery( document ).ready(function( $ ) {
@@ -94,7 +98,7 @@ jQuery( document ).ready(function( $ ) {
     $('#result').text('Sending data...');
     // fire off the request to /form.php
     request = $.ajax({
-      url: "https://script.google.com/macros/s/AKfycbwZNOvYYxSmCJPR6a3OVLquym3e1tRhpCLgwZwYYxVw9CnGOKc/exec",  // clone
+      url: "https://script.google.com/macros/s/AKfycbwZNOvYYxSmCJPR6a3OVLquym3e1tRhpCLgwZwYYxVw9CnGOKc/exec",
       type: "post",
       data: serializedData
     });
