@@ -1,14 +1,4 @@
 
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 20,
-    center: {lat: 35.6895, lng: 139.6917}
-  });
-  var georssLayer = new google.maps.KmlLayer({
-    url: 'http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss'
-  });
-  georssLayer.setMap(map);
-}
 
 $(document).ready(function(){
 

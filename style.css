@@ -51,17 +51,6 @@ code {
 }
 
 
-#map-wrapper {
-  width: 80%;
-  height: 80%;
-  position: absolute;
-  margin-top: 0%;
-}
-
-#map {
-  width: 100%;
-  height: 100%;
-}
 
 
 .sexytabs > ul {
@@ -132,7 +121,7 @@ code {
 }
 .sexytabs > ul > li a span {
   position: relative;
-  top: -0.5em;
+  /*top: -0.5em;*/
 }
 
 
@@ -168,6 +157,12 @@ h1 {
 
 .tabcontent {
   width: 100%;
-  background-color: pink;
+  /*background-color: pink;*/
   min-height: 500px;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
 }
